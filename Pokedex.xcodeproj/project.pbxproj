@@ -18,6 +18,7 @@
 		1BC68BCE1E8B579000114FB1 /* pokemon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC68BCA1E8B579000114FB1 /* pokemon.ttf */; };
 		1BC68BD01E8B74F600114FB1 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC68BCF1E8B74F600114FB1 /* Pokemon.swift */; };
 		1BC68BD51E8B7E2900114FB1 /* PokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC68BD41E8B7E2900114FB1 /* PokeCell.swift */; };
+		1BE2F7EB1E8C0C7E00924CB5 /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE2F7EA1E8C0C7E00924CB5 /* csv.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		1BC68BCA1E8B579000114FB1 /* pokemon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokemon.ttf; sourceTree = "<group>"; };
 		1BC68BCF1E8B74F600114FB1 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pokemon.swift; path = Model/Pokemon.swift; sourceTree = "<group>"; };
 		1BC68BD41E8B7E2900114FB1 /* PokeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PokeCell.swift; path = View/PokeCell.swift; sourceTree = "<group>"; };
+		1BE2F7EA1E8C0C7E00924CB5 /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		1BC68BD11E8B74FC00114FB1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1BE2F7EA1E8C0C7E00924CB5 /* csv.swift */,
 				1BC68BCF1E8B74F600114FB1 /* Pokemon.swift */,
 			);
 			name = Model;
@@ -195,6 +198,7 @@
 				1BC68BB71E8B569100114FB1 /* HomeVC.swift in Sources */,
 				1BC68BB51E8B569100114FB1 /* AppDelegate.swift in Sources */,
 				1BC68BD01E8B74F600114FB1 /* Pokemon.swift in Sources */,
+				1BE2F7EB1E8C0C7E00924CB5 /* csv.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +364,7 @@
 				1BC68BC51E8B569100114FB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
