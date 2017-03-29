@@ -16,6 +16,7 @@
 		1BC68BCC1E8B579000114FB1 /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BC68BC81E8B579000114FB1 /* music.png */; };
 		1BC68BCD1E8B579000114FB1 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1BC68BC91E8B579000114FB1 /* pokemon.csv */; };
 		1BC68BCE1E8B579000114FB1 /* pokemon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC68BCA1E8B579000114FB1 /* pokemon.ttf */; };
+		1BC68BD01E8B74F600114FB1 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC68BCF1E8B74F600114FB1 /* Pokemon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1BC68BC81E8B579000114FB1 /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music.png; sourceTree = "<group>"; };
 		1BC68BC91E8B579000114FB1 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		1BC68BCA1E8B579000114FB1 /* pokemon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pokemon.ttf; sourceTree = "<group>"; };
+		1BC68BCF1E8B74F600114FB1 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pokemon.swift; path = Model/Pokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				1BC68BC61E8B577000114FB1 /* Assets */,
+				1BC68BD11E8B74FC00114FB1 /* Model */,
 				1BC68BB41E8B569100114FB1 /* AppDelegate.swift */,
 				1BC68BB61E8B569100114FB1 /* ViewController.swift */,
 				1BC68BB81E8B569100114FB1 /* Main.storyboard */,
@@ -82,6 +85,14 @@
 				1BC68BCA1E8B579000114FB1 /* pokemon.ttf */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		1BC68BD11E8B74FC00114FB1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1BC68BCF1E8B74F600114FB1 /* Pokemon.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 			files = (
 				1BC68BB71E8B569100114FB1 /* ViewController.swift in Sources */,
 				1BC68BB51E8B569100114FB1 /* AppDelegate.swift in Sources */,
+				1BC68BD01E8B74F600114FB1 /* Pokemon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
