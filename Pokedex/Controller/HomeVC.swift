@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeVC.swift
 //  Pokedex
 //
 //  Created by Jake Romer on 3/28/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
   }
