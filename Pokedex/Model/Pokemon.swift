@@ -15,4 +15,17 @@ class Pokemon {
   init(name: String, pokedexId: Int) {
     (self.name, self.pokedexId) = (name, pokedexId)
   }
+
+  static func create(collectionFrom attrs: [Dictionary<String, String>]) -> [Pokemon] {
+    var newCollection = [Pokemon]()
+    
+    for entry in attrs {
+      if let name = entry["identifier"], let idString = entry["id"], let id = Int(idString) {
+        let newPoke = Pokemon(name: name, pokedexId: id)
+        newCollection.append(newPoke)
+      }
+    }
+
+    return newCollection
+  }
 }

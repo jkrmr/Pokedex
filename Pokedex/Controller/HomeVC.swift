@@ -20,9 +20,23 @@ class HomeVC: UIViewController, UICollectionViewDelegate,
     collectionView.dataSource = self
     collectionView.delegate = self
 
-    pokemons.append(Pokemon(name: "Charmander", pokedexId: 33))
+    let pokemonData = parsePokemonCSV()
+    pokemons = Pokemon.create(collectionFrom: pokemonData)
   }
 
+  func parsePokemonCSV() -> [Dictionary<String, String>] {
+    do {
+      guard let path = Bundle.main.path(forResource: "pokemon", ofType: "csv")
+        else { fatalError("could not find csv in bundle") }
+      let csv = try CSV(contentsOfURL: path)
+      let rows = csv.rows
+      return rows
+    } catch let error as NSError {
+      print(error)
+      return [] //[Dictionary<String, String>]()
+    }
+  }
+  
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokeCell {
       return cell.configureCell(pokemon: pokemons[indexPath.row])
