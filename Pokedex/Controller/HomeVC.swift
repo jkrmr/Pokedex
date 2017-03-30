@@ -13,7 +13,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate,
   @IBOutlet weak var collectionView: UICollectionView!
 
   var pokemons = [Pokemon]()
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -36,7 +36,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate,
       return [] //[Dictionary<String, String>]()
     }
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokeCell {
       return cell.configureCell(pokemon: pokemons[indexPath.row])

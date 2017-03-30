@@ -18,7 +18,7 @@ class Pokemon {
 
   static func create(collectionFrom attrs: [Dictionary<String, String>]) -> [Pokemon] {
     var newCollection = [Pokemon]()
-    
+
     for entry in attrs {
       if let name = entry["identifier"], let idString = entry["id"], let id = Int(idString) {
         let newPoke = Pokemon(name: name, pokedexId: id)
