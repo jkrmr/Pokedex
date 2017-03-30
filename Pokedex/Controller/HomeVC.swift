@@ -41,7 +41,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate,
       musicPlayer = try AVAudioPlayer(contentsOf: URL(string: path!)!)
       musicPlayer.prepareToPlay()
       musicPlayer.numberOfLoops = -1
-      musicPlayer.play()
+      //musicPlayer.play()
     } catch let error as NSError {
       print(error.debugDescription)
     }
@@ -84,8 +84,24 @@ class HomeVC: UIViewController, UICollectionViewDelegate,
   }
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let selectedPokemon = pokemons[indexPath.row]
-    print(selectedPokemon.name)
+    var selectedPokemon: Pokemon
+
+    if inSearchMode {
+      selectedPokemon = filteredPokemon[indexPath.row]
+    } else {
+      selectedPokemon = pokemons[indexPath.row]
+    }
+
+    performSegue(withIdentifier: "PokemonDetailVC", sender: selectedPokemon)
+  }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "PokemonDetailVC",
+      let controller = segue.destination as? PokemonDetailVC,
+      let pokemon = sender as? Pokemon {
+      controller.pokemon = pokemon
+      return
+    }
   }
 
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
