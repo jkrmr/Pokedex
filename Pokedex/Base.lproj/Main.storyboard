@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -209,15 +210,48 @@
                                     <constraint firstItem="YSr-Jv-ADg" firstAttribute="top" secondItem="URA-ye-Pzd" secondAttribute="top" constant="19" id="pcE-0K-Y4g"/>
                                 </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zxU-un-Yxf">
+                                <rect key="frame" x="16" y="86" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Bio"/>
+                                    <segment title="Moves"/>
+                                </segments>
+                            </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="89j-iG-p2r">
+                                <rect key="frame" x="16" y="122" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="fgZ-ML-acd"/>
+                                    <constraint firstAttribute="width" constant="150" id="o9j-16-ZC6"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charmander is a baller he does cool shit like shoot fire out of his eyes and whatnot." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="720-1q-eGB">
+                                <rect key="frame" x="174" y="122" width="185" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="gd4-To-GK1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="URA-ye-Pzd" firstAttribute="top" secondItem="Cbz-Sl-R4z" secondAttribute="bottom" id="1J1-RO-gmG"/>
+                            <constraint firstItem="zxU-un-Yxf" firstAttribute="leading" secondItem="IGe-1j-jhe" secondAttribute="leadingMargin" id="3C5-cS-E6b"/>
+                            <constraint firstItem="89j-iG-p2r" firstAttribute="leading" secondItem="IGe-1j-jhe" secondAttribute="leadingMargin" id="F58-rd-lX1"/>
                             <constraint firstItem="URA-ye-Pzd" firstAttribute="leading" secondItem="IGe-1j-jhe" secondAttribute="leading" id="FSy-ie-wpb"/>
+                            <constraint firstItem="89j-iG-p2r" firstAttribute="top" secondItem="zxU-un-Yxf" secondAttribute="bottom" constant="8" id="MF5-KL-0Bn"/>
+                            <constraint firstItem="720-1q-eGB" firstAttribute="top" secondItem="zxU-un-Yxf" secondAttribute="bottom" constant="8" id="RD2-Gc-INm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zxU-un-Yxf" secondAttribute="trailing" id="RUj-ab-5LJ"/>
+                            <constraint firstItem="zxU-un-Yxf" firstAttribute="top" secondItem="URA-ye-Pzd" secondAttribute="bottom" constant="8" id="cza-mE-UGC"/>
+                            <constraint firstItem="720-1q-eGB" firstAttribute="leading" secondItem="89j-iG-p2r" secondAttribute="trailing" constant="8" id="fCj-hu-vlV"/>
+                            <constraint firstItem="720-1q-eGB" firstAttribute="trailing" secondItem="IGe-1j-jhe" secondAttribute="trailingMargin" id="ghl-Pv-shY"/>
                             <constraint firstAttribute="trailing" secondItem="URA-ye-Pzd" secondAttribute="trailing" id="qmO-Zw-mD1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pokemonDescription" destination="720-1q-eGB" id="JdH-V7-kec"/>
+                        <outlet property="pokemonDetailImage" destination="89j-iG-p2r" id="RE0-Vf-zpf"/>
                         <outlet property="pokemonName" destination="CPU-T8-u4C" id="8Jc-wc-72h"/>
                     </connections>
                 </viewController>
@@ -228,8 +262,10 @@
     </scenes>
     <resources>
         <image name="434" width="120" height="120"/>
+        <image name="5" width="120" height="120"/>
         <image name="back" width="100" height="67"/>
         <image name="bg" width="1920" height="1200"/>
         <image name="music" width="100" height="100"/>
     </resources>
+    <color key="tintColor" red="0.21312334259999999" green="0.34623302249999999" blue="0.47709787440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
