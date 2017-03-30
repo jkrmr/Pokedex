@@ -9,6 +9,11 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="pokemon.ttf">
+            <string>PokemonSolidNormal</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
@@ -22,13 +27,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Tz-oh-gRI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
-                                <color key="backgroundColor" red="0.21312334259999999" green="0.34623302249999999" blue="0.47709787440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="78" id="rzv-OO-vv7"/>
-                                </constraints>
-                            </view>
                             <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="R2g-tB-jzV">
                                 <rect key="frame" x="0.0" y="78" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.21312334259999999" green="0.34623302249999999" blue="0.47709787440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -91,6 +89,45 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Tz-oh-gRI">
+                                <rect key="frame" x="0.0" y="20" width="375" height="58"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6R-sr-9Lw">
+                                        <rect key="frame" x="126" y="17" width="122" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="122" id="KDa-xa-fYK"/>
+                                            <constraint firstAttribute="height" constant="41" id="cZe-lo-Y4B"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="feU-ax-F3I"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="122" id="vUb-lO-3VO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x03-Sc-roy">
+                                        <rect key="frame" x="347" y="30" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="RsX-W7-OSE"/>
+                                            <constraint firstAttribute="height" constant="20" id="SXB-R9-KwK"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="music"/>
+                                        <connections>
+                                            <action selector="musicTogglePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MZ4-9T-m5R"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.21312334259999999" green="0.34623302249999999" blue="0.47709787440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="E6R-sr-9Lw" secondAttribute="bottom" id="3MB-SE-V2e"/>
+                                    <constraint firstAttribute="trailing" secondItem="x03-Sc-roy" secondAttribute="trailing" constant="8" id="613-OJ-IN7"/>
+                                    <constraint firstAttribute="bottom" secondItem="x03-Sc-roy" secondAttribute="bottom" constant="8" id="Egy-Xm-eHe"/>
+                                    <constraint firstItem="E6R-sr-9Lw" firstAttribute="centerX" secondItem="9Tz-oh-gRI" secondAttribute="centerX" id="NxQ-az-wWg"/>
+                                    <constraint firstAttribute="bottom" secondItem="x03-Sc-roy" secondAttribute="bottom" constant="8" id="VNZ-bS-UBS"/>
+                                    <constraint firstAttribute="bottom" secondItem="E6R-sr-9Lw" secondAttribute="bottom" id="Xgo-B5-zjY"/>
+                                    <constraint firstAttribute="trailing" secondItem="x03-Sc-roy" secondAttribute="trailing" constant="8" id="nvv-L6-3M4"/>
+                                    <constraint firstAttribute="height" constant="58" id="rzv-OO-vv7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -105,7 +142,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xpL-OP-fGN" secondAttribute="bottom" constant="20" id="Pws-1J-gdK"/>
                             <constraint firstAttribute="trailing" secondItem="xpL-OP-fGN" secondAttribute="trailing" constant="20" id="Qyb-vD-JBn"/>
                             <constraint firstAttribute="trailing" secondItem="R2g-tB-jzV" secondAttribute="trailing" id="SII-Vd-94f"/>
-                            <constraint firstItem="9Tz-oh-gRI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="c31-Du-fOg"/>
+                            <constraint firstItem="9Tz-oh-gRI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="c31-Du-fOg"/>
                             <constraint firstItem="R2g-tB-jzV" firstAttribute="top" secondItem="9Tz-oh-gRI" secondAttribute="bottom" id="epe-Wa-trH"/>
                             <constraint firstItem="cuQ-XC-p4h" firstAttribute="top" secondItem="R2g-tB-jzV" secondAttribute="bottom" id="lrm-4O-Shp"/>
                             <constraint firstAttribute="trailing" secondItem="cuQ-XC-p4h" secondAttribute="trailing" id="qDa-vd-s4a"/>
@@ -121,11 +158,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="93.103448275862078"/>
+            <point key="canvasLocation" x="18.399999999999999" y="37.331334332833585"/>
         </scene>
     </scenes>
     <resources>
         <image name="434" width="120" height="120"/>
         <image name="bg" width="1920" height="1200"/>
+        <image name="music" width="100" height="100"/>
     </resources>
 </document>

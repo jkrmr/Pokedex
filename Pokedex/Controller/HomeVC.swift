@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 class HomeVC: UIViewController, UICollectionViewDelegate,
   UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   @IBOutlet weak var collectionView: UICollectionView!
 
   var pokemons = [Pokemon]()
+  var musicPlayer: AVAudioPlayer!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,6 +24,20 @@ class HomeVC: UIViewController, UICollectionViewDelegate,
 
     let pokemonData = parsePokemonCSV()
     pokemons = Pokemon.create(collectionFrom: pokemonData)
+
+    initAudio()
+  }
+
+  func initAudio() {
+    do {
+      let path = Bundle.main.path(forResource: "music", ofType: "mp3")
+      musicPlayer = try AVAudioPlayer(contentsOf: URL(string: path!)!)
+      musicPlayer.prepareToPlay()
+      musicPlayer.numberOfLoops = -1
+      musicPlayer.play()
+    } catch let error as NSError {
+      print(error.debugDescription)
+    }
   }
 
   func parsePokemonCSV() -> [Dictionary<String, String>] {
@@ -35,6 +51,17 @@ class HomeVC: UIViewController, UICollectionViewDelegate,
       print(error)
       return [] //[Dictionary<String, String>]()
     }
+  }
+
+  @IBAction func musicTogglePressed(_ sender: UIButton) {
+    if musicPlayer.isPlaying {
+      musicPlayer.stop()
+      sender.alpha = 0.1
+    } else {
+      musicPlayer.play()
+      sender.alpha = 1.0
+    }
+
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
