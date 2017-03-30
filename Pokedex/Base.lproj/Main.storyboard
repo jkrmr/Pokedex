@@ -154,6 +154,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="xpL-OP-fGN" id="tDp-Jw-hkP"/>
+                        <outlet property="searchBar" destination="R2g-tB-jzV" id="ezq-eV-zuw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
