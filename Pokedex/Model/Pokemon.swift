@@ -24,12 +24,26 @@ class Pokemon {
   init(name: String, pokedexId: Int) {
     self.name = name
     self.pokedexId = pokedexId
-    self.url = "\(API_URL)/\(pokedexId)"
+    self.url = "\(API_URL)/\(pokedexId)/"
   }
 
   func downloadDetails(completion: @escaping DownloadComplete) {
     Alamofire.request(url).responseJSON { (resp) in
-      print(resp.result.value ?? "no response")
+      guard let json = resp.result.value as? [String: Any]
+        else { return }
+
+      guard let baseAttack = json["attack"] as? Int,
+        let defense = json["defense"] as? Int,
+        let height = json["height"] as? String,
+        let weight = json["weight"] as? String
+        else { return completion(nil) }
+
+      self.baseAttack = baseAttack
+      self.defense = defense
+      self.height = Int(height)
+      self.weight = Int(weight)
+
+      completion(self)
     }
   }
 

@@ -24,21 +24,24 @@ class PokemonDetailVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    pokemonName.text = pokemon.name.capitalized
-    pokemon.downloadDetails {
-      self.updateUI()
+    pokemon.downloadDetails { (pokemon) in
+      guard let pokemon = pokemon else { return }
+      self.updateUI(pokemon)
     }
   }
 
-  func updateUI() {
-    pokemonDescription.text = pokemon.description
-    pokemonType.text = pokemon.type
-    pokemonDefense.text = String(describing: pokemon.defense)
-    pokemonHeight.text = String(describing: pokemon.height)
-    pokemonWeight.text = String(describing: pokemon.weight)
-    pokemonBaseAttack.text = String(describing: pokemon.baseAttack)
+  func updateUI(_ pokemon: Pokemon) {
+    pokemonName.text = pokemon.name.capitalized
     pokemonPokedexId.text = "\(pokemon.pokedexId)"
     pokemonDetailImage.image = UIImage(named: "\(pokemon.pokedexId)")
+
+    if let defense = pokemon.defense { pokemonDefense.text = "\(defense)" }
+    if let height = pokemon.height { pokemonHeight.text = "\(height)" }
+    if let weight = pokemon.weight { pokemonWeight.text = "\(weight)" }
+    if let baseAttack = pokemon.baseAttack { pokemonBaseAttack.text = "\(baseAttack)" }
+
+    pokemonType.text = pokemon.type
+    pokemonDescription.text = pokemon.description
   }
 
   @IBAction func backButtonPressed(_ sender: Any) {

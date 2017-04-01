@@ -30,7 +30,6 @@ class HomeVC: UIViewController, UICollectionViewDelegate,
     searchBar.returnKeyType = UIReturnKeyType.done
 
     let pokemonData = parsePokemonCSV()
-    print(pokemonData)
     pokemons = Pokemon.create(collectionFrom: pokemonData)
 
     initAudio()
