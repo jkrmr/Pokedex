@@ -1,0 +1,5 @@
+excluded:
+  - Sources/Lib
+  - Pods
+  - Pokedex/AppDelegate.swift
+  - Pokedex/csv.swift

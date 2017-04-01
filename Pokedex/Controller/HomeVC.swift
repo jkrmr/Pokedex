@@ -47,7 +47,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate,
     }
   }
 
-  func parsePokemonCSV() -> [Dictionary<String, String>] {
+  func parsePokemonCSV() -> [[String: String]] {
     do {
       guard let path = Bundle.main.path(forResource: "pokemon", ofType: "csv")
         else { fatalError("could not find csv in bundle") }
@@ -71,7 +71,9 @@ class HomeVC: UIViewController, UICollectionViewDelegate,
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as! PokeCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath)
+    guard let pokeCell = cell as? PokeCell else { return cell }
+
     var pokemon: Pokemon
 
     if inSearchMode {
@@ -80,7 +82,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate,
       pokemon = pokemons[indexPath.row]
     }
 
-    return cell.configureCell(pokemon: pokemon)
+    return pokeCell.configureCell(pokemon: pokemon)
   }
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

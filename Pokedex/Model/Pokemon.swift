@@ -31,7 +31,7 @@ class Pokemon {
     self.weight = weight
   }
 
-  static func create(collectionFrom attrs: [Dictionary<String, String>]) -> [Pokemon] {
+  static func create(collectionFrom attrs: [[String: String]]) -> [Pokemon] {
     var newCollection = [Pokemon]()
 
     for entry in attrs {
