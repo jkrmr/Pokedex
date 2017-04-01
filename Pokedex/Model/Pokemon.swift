@@ -28,22 +28,36 @@ class Pokemon {
   }
 
   func downloadDetails(completion: @escaping DownloadComplete) {
-    Alamofire.request(url).responseJSON { (resp) in
-      guard let json = resp.result.value as? [String: Any]
-        else { return }
+    OperationQueue().addOperation {
+      Alamofire.request(self.url).responseJSON { (resp) in
+        guard let json = resp.result.value as? [String: AnyObject]
+          else { return OperationQueue.main.addOperation { completion(nil) }}
 
-      guard let baseAttack = json["attack"] as? Int,
-        let defense = json["defense"] as? Int,
-        let height = json["height"] as? String,
-        let weight = json["weight"] as? String
-        else { return completion(nil) }
+        guard let baseAttack = json["attack"] as? Int,
+          let defense = json["defense"] as? Int,
+          let height = json["height"] as? String,
+          let weight = json["weight"] as? String,
+          let descriptions = json["descriptions"] as? [[String: String]],
+          let description = descriptions.first,
+          let descUrl = description["resource_uri"]
+          else { return OperationQueue.main.addOperation { completion(nil) }}
 
-      self.baseAttack = baseAttack
-      self.defense = defense
-      self.height = Int(height)
-      self.weight = Int(weight)
+        self.baseAttack = baseAttack
+        self.defense = defense
+        self.height = Int(height)
+        self.weight = Int(weight)
 
-      completion(self)
+        OperationQueue().addOperation {
+          let urlString = "\(URL_BASE)\(descUrl)"
+          Alamofire.request(urlString).responseJSON { (response) in
+            guard let dict = response.result.value as? [String: AnyObject],
+              let desc = dict["description"] as? String
+              else { return OperationQueue.main.addOperation { completion(nil) }}
+            self.description = desc
+            OperationQueue.main.addOperation { completion(self) }
+          }
+        }
+      }
     }
   }
 
