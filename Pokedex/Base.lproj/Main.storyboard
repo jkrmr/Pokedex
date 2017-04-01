@@ -485,9 +485,15 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pokemonBaseAttack" destination="hVQ-8a-EuA" id="YJy-AK-Z8P"/>
+                        <outlet property="pokemonDefense" destination="1qV-d5-SBO" id="aFF-dW-3ob"/>
                         <outlet property="pokemonDescription" destination="720-1q-eGB" id="JdH-V7-kec"/>
                         <outlet property="pokemonDetailImage" destination="89j-iG-p2r" id="RE0-Vf-zpf"/>
+                        <outlet property="pokemonHeight" destination="RvC-j5-v0W" id="IKl-Bn-PYo"/>
                         <outlet property="pokemonName" destination="CPU-T8-u4C" id="8Jc-wc-72h"/>
+                        <outlet property="pokemonPokedexId" destination="uPb-US-ecf" id="LgW-hF-vXo"/>
+                        <outlet property="pokemonType" destination="n0K-A1-YYj" id="fHh-jf-Had"/>
+                        <outlet property="pokemonWeight" destination="5rY-2h-fVZ" id="Dmw-ff-BKB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meR-cI-5Eo" userLabel="First Responder" sceneMemberID="firstResponder"/>
