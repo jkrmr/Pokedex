@@ -30,6 +30,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate,
     searchBar.returnKeyType = UIReturnKeyType.done
 
     let pokemonData = parsePokemonCSV()
+    print(pokemonData)
     pokemons = Pokemon.create(collectionFrom: pokemonData)
 
     initAudio()
@@ -47,7 +48,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate,
     }
   }
 
-  func parsePokemonCSV() -> [[String: String]] {
+  func parsePokemonCSV() -> [Dictionary<String, String>] {
     do {
       guard let path = Bundle.main.path(forResource: "pokemon", ofType: "csv")
         else { fatalError("could not find csv in bundle") }

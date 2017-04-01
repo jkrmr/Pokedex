@@ -25,12 +25,18 @@ class PokemonDetailVC: UIViewController {
     super.viewDidLoad()
 
     pokemonName.text = pokemon.name.capitalized
+    pokemon.downloadDetails {
+      self.updateUI()
+    }
+  }
+
+  func updateUI() {
     pokemonDescription.text = pokemon.description
     pokemonType.text = pokemon.type
-    pokemonDefense.text = "\(pokemon.defense)"
-    pokemonHeight.text = "\(pokemon.height)"
-    pokemonWeight.text = "\(pokemon.weight)"
-    pokemonBaseAttack.text = "\(pokemon.baseAttack)"
+    pokemonDefense.text = String(describing: pokemon.defense)
+    pokemonHeight.text = String(describing: pokemon.height)
+    pokemonWeight.text = String(describing: pokemon.weight)
+    pokemonBaseAttack.text = String(describing: pokemon.baseAttack)
     pokemonPokedexId.text = "\(pokemon.pokedexId)"
     pokemonDetailImage.image = UIImage(named: "\(pokemon.pokedexId)")
   }
