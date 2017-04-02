@@ -19,11 +19,15 @@ class PokemonDetailVC: UIViewController {
   @IBOutlet weak var pokemonBaseAttack: UILabel!
   @IBOutlet weak var pokemonPokedexId: UILabel!
   @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+  @IBOutlet weak var evolutionImage: UIImageView!
+  @IBOutlet weak var evolutionName: UILabel!
+  @IBOutlet weak var nextEvolutionBanner: UIView!
 
   var pokemon: Pokemon!
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    nextEvolutionBanner.isHidden = true
 
     self.loadingIndicator.startAnimating()
     pokemon.downloadDetails { (pokemon) in
@@ -44,6 +48,16 @@ class PokemonDetailVC: UIViewController {
 
     pokemonType.text = pokemon.type
     pokemonDescription.text = pokemon.description
+
+    if let evoName = pokemon.evolutionName,
+      let evoID = pokemon.evolutionID {
+      nextEvolutionBanner.isHidden = false
+      evolutionName.text = evoName
+      evolutionImage.image = UIImage(named: evoID)
+    } else {
+      nextEvolutionBanner.isHidden = true
+    }
+
     self.loadingIndicator.stopAnimating()
   }
 

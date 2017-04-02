@@ -182,7 +182,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="URA-ye-Pzd" userLabel="Navbar">
                                 <rect key="frame" x="0.0" y="20" width="320" height="58"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charmander" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPU-T8-u4C">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPU-T8-u4C">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -419,10 +419,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nZe-PI-Kzm">
                                 <rect key="frame" x="16" y="399" width="288" height="134"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VSo-8K-8bE">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VSo-8K-8bE" userLabel="evolutionImage">
                                         <rect key="frame" x="76" y="0.0" width="136" height="114"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqb-GB-vlV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqb-GB-vlV" userLabel="evolutionName">
                                         <rect key="frame" x="0.0" y="114" width="288" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="htc-1d-h5p"/>
@@ -465,7 +465,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="evolutionImage" destination="VSo-8K-8bE" id="uGY-Tt-18O"/>
+                        <outlet property="evolutionName" destination="Uqb-GB-vlV" id="YYx-Vl-zBe"/>
                         <outlet property="loadingIndicator" destination="fdB-Ip-gw7" id="0eS-Ul-Cxg"/>
+                        <outlet property="nextEvolutionBanner" destination="AhT-gm-aV4" id="Zru-Bx-OUE"/>
                         <outlet property="pokemonBaseAttack" destination="hVQ-8a-EuA" id="YJy-AK-Z8P"/>
                         <outlet property="pokemonDefense" destination="1qV-d5-SBO" id="aFF-dW-3ob"/>
                         <outlet property="pokemonDescription" destination="720-1q-eGB" id="JdH-V7-kec"/>

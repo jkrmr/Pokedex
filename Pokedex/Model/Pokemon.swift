@@ -20,6 +20,8 @@ class Pokemon {
   var height: Int?
   var type: String?
   var weight: Int?
+  var evolutionName: String?
+  var evolutionID: String?
 
   init(name: String, pokedexId: Int) {
     self.name = name
@@ -68,9 +70,25 @@ class Pokemon {
             guard let dict = response.result.value as? [String: AnyObject],
               let desc = dict["description"] as? String
               else { return }
-            self.description = desc
+
+            self.description =
+              desc
+                .replacingOccurrences(of: "POKMONS", with: "Pokemon's")
+                .replacingOccurrences(of: "POKEMONS", with: "Pokemon's")
+                .replacingOccurrences(of: "POKMON", with: "Pokemon")
+                .replacingOccurrences(of: "POKEMON", with: "Pokemon")
+
             OperationQueue.main.addOperation { completion(self) }
           }
+        }
+
+        if let evolutions = json["evolutions"] as? [[String: AnyObject]] {
+          let evo = evolutions.first
+          self.evolutionName = evo?["to"] as? String
+
+          let evoPath = evo?["resource_uri"] as? String
+          let url = evoPath?.replacingOccurrences(of: "/api/v1/pokemon/", with: "")
+          self.evolutionID = url?.replacingOccurrences(of: "/", with: "")
         }
       }
     }
