@@ -33,26 +33,41 @@ class Pokemon {
         guard let json = resp.result.value as? [String: AnyObject]
           else { return OperationQueue.main.addOperation { completion(nil) }}
 
-        guard let baseAttack = json["attack"] as? Int,
-          let defense = json["defense"] as? Int,
-          let height = json["height"] as? String,
-          let weight = json["weight"] as? String,
-          let descriptions = json["descriptions"] as? [[String: String]],
+        if let baseAttack = json["attack"] as? Int {
+          self.baseAttack = baseAttack
+          OperationQueue.main.addOperation { completion(self) }
+        }
+
+        if let defense = json["defense"] as? Int {
+          self.defense = defense
+          OperationQueue.main.addOperation { completion(self) }
+        }
+
+        if let height = json["height"] as? String {
+          self.height = Int(height)
+          OperationQueue.main.addOperation { completion(self) }
+        }
+
+        if let weight = json["weight"] as? String {
+          self.weight = Int(weight)
+          OperationQueue.main.addOperation { completion(self) }
+        }
+
+        if let types = json["types"] as? [[String: String]], types.count > 0 {
+          let typeNames = types.flatMap({ $0["name"]?.capitalized })
+          self.type = typeNames.joined(separator: " / ")
+          OperationQueue.main.addOperation { completion(self) }
+        }
+
+        if let descriptions = json["descriptions"] as? [[String: String]],
           let description = descriptions.first,
-          let descUrl = description["resource_uri"]
-          else { return OperationQueue.main.addOperation { completion(nil) }}
-
-        self.baseAttack = baseAttack
-        self.defense = defense
-        self.height = Int(height)
-        self.weight = Int(weight)
-
-        OperationQueue().addOperation {
+          let descUrl = description["resource_uri"] {
           let urlString = "\(URL_BASE)\(descUrl)"
+
           Alamofire.request(urlString).responseJSON { (response) in
             guard let dict = response.result.value as? [String: AnyObject],
               let desc = dict["description"] as? String
-              else { return OperationQueue.main.addOperation { completion(nil) }}
+              else { return }
             self.description = desc
             OperationQueue.main.addOperation { completion(self) }
           }

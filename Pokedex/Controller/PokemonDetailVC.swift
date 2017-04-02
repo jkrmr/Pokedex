@@ -18,12 +18,14 @@ class PokemonDetailVC: UIViewController {
   @IBOutlet weak var pokemonWeight: UILabel!
   @IBOutlet weak var pokemonBaseAttack: UILabel!
   @IBOutlet weak var pokemonPokedexId: UILabel!
+  @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 
   var pokemon: Pokemon!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    self.loadingIndicator.startAnimating()
     pokemon.downloadDetails { (pokemon) in
       guard let pokemon = pokemon else { return }
       self.updateUI(pokemon)
@@ -42,6 +44,7 @@ class PokemonDetailVC: UIViewController {
 
     pokemonType.text = pokemon.type
     pokemonDescription.text = pokemon.description
+    self.loadingIndicator.stopAnimating()
   }
 
   @IBAction func backButtonPressed(_ sender: Any) {
