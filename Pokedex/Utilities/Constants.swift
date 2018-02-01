@@ -8,7 +8,7 @@
 
 import Foundation
 
-let API_VERSION = "1"
+let API_VERSION = "2"
 let URL_BASE = "http://pokeapi.co"
 let URL_POKEMON = "/api/v\(API_VERSION)/pokemon"
 let API_URL = "\(URL_BASE)/\(URL_POKEMON)"

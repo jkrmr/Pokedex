@@ -30,6 +30,7 @@ class PokemonDetailVC: UIViewController {
     nextEvolutionBanner.isHidden = true
 
     self.loadingIndicator.startAnimating()
+
     pokemon.downloadDetails { (pokemon) in
       guard let pokemon = pokemon else { return }
       self.updateUI(pokemon)
@@ -41,10 +42,21 @@ class PokemonDetailVC: UIViewController {
     pokemonPokedexId.text = "\(pokemon.pokedexId)"
     pokemonDetailImage.image = UIImage(named: "\(pokemon.pokedexId)")
 
-    if let defense = pokemon.defense { pokemonDefense.text = "\(defense)" }
-    if let height = pokemon.height { pokemonHeight.text = "\(height)" }
-    if let weight = pokemon.weight { pokemonWeight.text = "\(weight)" }
-    if let baseAttack = pokemon.baseAttack { pokemonBaseAttack.text = "\(baseAttack)" }
+    if let defense = pokemon.defense {
+      pokemonDefense.text = "\(defense)"
+    }
+
+    if let height = pokemon.height {
+      pokemonHeight.text = "\(height)"
+    }
+
+    if let weight = pokemon.weight {
+       pokemonWeight.text = "\(weight)"
+    }
+
+    if let baseAttack = pokemon.baseAttack {
+       pokemonBaseAttack.text = "\(baseAttack)"
+    }
 
     pokemonType.text = pokemon.type
     pokemonDescription.text = pokemon.description
